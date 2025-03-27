@@ -12,6 +12,7 @@ function AgregarTarea()
     {
         tareas.push(tarea);
         MostrarTareas(tareas);
+        
     }
 }
 function MostrarTareas(tareas)
@@ -21,11 +22,22 @@ function MostrarTareas(tareas)
     {
         mostrartareas.innerHTML += `
         <div id ="tareaagregada">
-            <p>
+            <p onclick= "TacharTareas(tarea.id)">
                 <input type ="checkbox" id = "CheckTarea">
                 ${tareas}
             </p>
         </div>`;
     }
+}
 
+function TacharTareas(tareas)
+{   
+    let boton = document.getElementById("CheckTarea");
+    for(tareas of tarea)
+    {
+       if (tarea.id = true)
+       {
+        boton.style.color = "red";
+       }
+    }
 }
