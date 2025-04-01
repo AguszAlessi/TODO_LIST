@@ -1,43 +1,54 @@
 let mostrartareas = document.getElementById("TodasLasTareas");
+let tareas = [];
 
 function AgregarTarea()
 {
-    let tareas = [];
+
+    let fecha = new Date(); 
     let tarea = document.getElementById("agregartarea").value;
-    if (tarea == " ")
+    if (tarea === " ")
     {
         alert("Ingrese algo valido");
     }
     else
     {
-        tareas.push(tarea);
-        MostrarTareas(tareas);
-        
+        let tareaObj = 
+        {
+            nombre: tarea,
+            fecha: fecha,
+            completada:false
+        };
+        tareas.push(tareaObj);
+        MostrarTareas();
+
     }
 }
-function MostrarTareas(tareas)
+function MostrarTareas()
 {
+    mostrartareas.innerHTML = "";
+    tareas.forEach(tarea=> {
+        
+        let day = tarea.fecha.getDate();
+        let month = tarea.fecha.getMonth() + 1;
+        let year = tarea.fecha.getFullYear();
+    let fechaFormateada = `${day}/${month}/${year}`;
 
-    for (tarea of tareas)
-    {
         mostrartareas.innerHTML += `
         <div id ="tareaagregada">
             <p onclick= "TacharTareas(tarea.id)">
                 <input type ="checkbox" id = "CheckTarea">
-                ${tareas}
+                ${tarea.nombre} - ${fechaFormateada} 
             </p>
         </div>`;
-    }
+});
 }
 
-function TacharTareas(tareas)
-{   
-    let boton = document.getElementById("CheckTarea");
-    for(tareas of tarea)
+function TacharTareas(id)
+{
+    let texto = document.getElementById(id);
+    let checkbox = document.getElementById(`check-${id}`);
+    if(checkbox.checked)
     {
-       if (tarea.id = true)
-       {
-        boton.style.color = "red";
-       }
+        texto.style.textDecoration = "line-through";
     }
 }
