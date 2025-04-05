@@ -99,3 +99,27 @@ button {
     transform: scale(1.2); 
 }
 
+.fecha-completada {
+    color: #777;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.TareaMasRapida {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.resultado-rapido {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
